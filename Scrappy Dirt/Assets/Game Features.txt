@@ -1,0 +1,26 @@
+Falling & Raising animation
+
+
+
+UI:
+Always visible:
+-score
+-audio mute toggle
+-Currency (stars, diamonds, hearts etc.)
+
+onStart visible:
+Select your character:
+character icon on left + currency cost on right
+arrows (left and right) to navigate
+button "Play"
+
+odLose visible:
+score text
+best score text
+Rate button
+PLay again button
+home button
+
+After "play" and "play again" button visible:
+"GET READY" text
+finger tap icon
