@@ -9,21 +9,21 @@ public class UIManager : MonoBehaviour
     public TMP_Text scoreTextTop;
     public TMP_Text scoreTextLostMenu;
     public TMP_Text scoreTextBest;
+    public TMP_Text dollarText;
     public GameObject mainManu;
     public GameObject lostMenu;
     public GameObject tapToStart;
     public GameObject player;
-    int score = 0;
-    int bestScoreInt = 0;
-    Vector2 playerStartPos;
-
+    int score;
+    int dollarAmount;
 
 
     private void Start()
     {
         Time.timeScale = 0f;
-        playerStartPos = player.transform.position;
         score = 0;
+        dollarAmount = PlayerPrefs.GetInt("player dollars");
+        scoreTextBest.text = PlayerPrefs.GetInt("best score").ToString();
     }
 
     public int ReturnScore()
@@ -69,20 +69,31 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (score > bestScoreInt)
-        {
-            bestScoreInt = score;
-        }
-        scoreTextTop.text = score.ToString();
-        scoreTextLostMenu.text = score.ToString();
-        scoreTextBest.text = bestScoreInt.ToString();
-
+        ScoreAndCurrencyDisplay();
     }
 
     public void AddScore()
     {
         score++;
+        PlayerPrefs.SetInt("player dollars", dollarAmount);
     }
 
+    public void AddDollar()
+    {
+        dollarAmount++;
+    }
+
+    public void ScoreAndCurrencyDisplay()
+    {
+        scoreTextTop.text = score.ToString();
+        scoreTextLostMenu.text = score.ToString();
+        dollarText.text = dollarAmount.ToString();
+
+        if (score > PlayerPrefs.GetInt("best score", 0))
+        {
+            PlayerPrefs.SetInt("best score", score);
+            scoreTextBest.text = score.ToString();
+        }
+    }
 
 }

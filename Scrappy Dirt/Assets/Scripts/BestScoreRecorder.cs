@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BestScoreRecorder : MonoBehaviour
 {
+    public UIManager cachedObject;
 
     public static BestScoreRecorder scoreRecorder;
 
