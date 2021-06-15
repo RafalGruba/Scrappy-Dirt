@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
         Time.timeScale = 0f;
         score = 0;
         dollarAmount = PlayerPrefs.GetInt("player dollars");
@@ -94,6 +95,18 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("best score", score);
             scoreTextBest.text = score.ToString();
         }
+    }
+
+    public int ReturnDollarAmount()
+    {
+        return dollarAmount;
+    }
+
+    public void SpendDollarsForNewCharacter()
+    {
+        int characterCost = FindObjectOfType<OwnedOrNot>().ReturnPrice();
+        dollarAmount -= characterCost;
+        PlayerPrefs.SetInt("player dollars", dollarAmount);
     }
 
 }

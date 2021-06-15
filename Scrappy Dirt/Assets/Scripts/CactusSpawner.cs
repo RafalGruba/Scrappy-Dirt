@@ -31,7 +31,7 @@ public class CactusSpawner : MonoBehaviour
             Destroy(cactusClone, 10);
             timer = 0;
             cactusCounter++;
-            if (cactusCounter % 10 == 0)
+            if (cactusCounter % 1 == 0)
             {
                 GameObject dollarClone = Instantiate(dollarObject, cactusClone.transform) as GameObject;
             }

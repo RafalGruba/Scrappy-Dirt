@@ -7,6 +7,8 @@ public class CharacterSelection : MonoBehaviour
     public GameObject[] characters;
     public int characterSelected;
 
+    
+
     private void Start()
     {
         characters[characterSelected].SetActive(false);
@@ -34,5 +36,10 @@ public class CharacterSelection : MonoBehaviour
         PlayerPrefs.SetInt("selected character", characterSelected);
     }
 
+
+    public int ReturnSelectedCharacterIndex()
+    {
+        return characterSelected;
+    }
 
 }
