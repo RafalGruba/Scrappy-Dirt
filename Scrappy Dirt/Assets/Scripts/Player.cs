@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpSpeed;
             myAnimator.SetTrigger("hasJumped");
+            if (Time.timeScale == 1f)
+            {
+                SFXManager.sfxInstance.audioSource.PlayOneShot(SFXManager.sfxInstance.flySFX);
+            }
         }
     }
 }

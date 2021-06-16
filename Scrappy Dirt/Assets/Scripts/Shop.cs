@@ -16,9 +16,6 @@ public class Shop : MonoBehaviour
     int moneyPlayerHas;
 
 
-    private void Start()
-    {
-    }
 
     private void Update()
     {
@@ -58,6 +55,7 @@ public class Shop : MonoBehaviour
             bought.SetActive(true);
             cannotPlay.SetActive(false);
             canPlay.SetActive(true);
+            SFXManager.sfxInstance.audioSource.PlayOneShot(SFXManager.sfxInstance.playButtonSFX);
         }
         else
         {

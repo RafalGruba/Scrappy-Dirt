@@ -8,6 +8,7 @@ public class ScoreCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FindObjectOfType<UIManager>().AddScore();
+        SFXManager.sfxInstance.audioSource.PlayOneShot(SFXManager.sfxInstance.scoreSFX);
     }
 
 }

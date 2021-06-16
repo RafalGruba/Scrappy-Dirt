@@ -8,5 +8,6 @@ public class CactusCollider : MonoBehaviour
     {
         Time.timeScale = 0f;
         FindObjectOfType<UIManager>().ActivateLostMenu();
+        SFXManager.sfxInstance.audioSource.PlayOneShot(SFXManager.sfxInstance.crashSFX);
     }
 }
