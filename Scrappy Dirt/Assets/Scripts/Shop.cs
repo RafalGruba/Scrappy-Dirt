@@ -59,8 +59,9 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            // pop-out message that "You cannot afford it yet!"
-            return;
+            SFXManager.sfxInstance.audioSource.PlayOneShot(SFXManager.sfxInstance.crashSFX);
+            FindObjectOfType<ToolTipText>().PopOutMessage();
+            FindObjectOfType<ToolTipBG>().PopOutMessage();
         }
 
     }

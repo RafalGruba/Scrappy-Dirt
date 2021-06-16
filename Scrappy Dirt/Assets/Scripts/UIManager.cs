@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         Time.timeScale = 0f;
         score = 0;
         dollarAmount = PlayerPrefs.GetInt("player dollars");
